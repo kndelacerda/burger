@@ -6,12 +6,6 @@ var PORT = process.env.PORT || 3000;
 var routes = require('./controllers/burgers_controllers.js');
 var app = express();
 
-db.sequelize.sync().then(function() {
-    app.listen(PORT, function() {
-        console.log("Listening on port %s", PORT);
-    });
-});
-
 app.use(express.static(process.cwd() + '/public'));
 
 app.use(bodyParser.urlencoded({
@@ -26,3 +20,9 @@ app.engine('handlebars', exphbs({
 app.set('view engine', 'handlebars');
 
 app.use('/', routes);
+
+db.sequelize.sync().then(function() {
+    app.listen(PORT, function() {
+        console.log("Listening on port %s", PORT);
+    });
+});
