@@ -1,10 +1,12 @@
 {
     "name": "eatdaburger",
     "version": "1.0.0",
-    "description": "",
+    "description": "Eat Da Burger!",
     "main": "server.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "debug": "DEBUG=hw-eat-da-burger:* npm start",
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node ./bin/www"
     },
     "repository": {
         "type": "git",
@@ -26,6 +28,8 @@
         "express": "^4.15.3",
         "express-handlebars": "^3.0.0",
         "method-override": "^2.3.9",
-        "mysql": "^2.13.0"
+        "mysql": "^2.13.0",
+        "morgan": "^1.7.0",
+        "mysql": "^2.11.1"
     }
 }

@@ -1,28 +1,62 @@
+// Dependencies
 var express = require("express");
-var db = require("./models");
 var methodOverride = require("method-override");
-var bodyParser = require("body-parser");
-var PORT = process.env.PORT || 3000;
-var routes = require('./controllers/burgers_controllers.js');
+var path = require("path");
+// var db = require("./models");
+
+// Initialize Express App
 var app = express();
 
-app.use(express.static(process.cwd() + '/public'));
 
-app.use(bodyParser.urlencoded({
-    extended: false
-}));
-
-app.use(methodOverride('_method'));
-var exphbs = require('express-handlebars');
+// View Engine Set Up
+var exphbs = require("express-handlebars");
 app.engine('handlebars', exphbs({
     defaultLayout: 'main'
 }));
 app.set('view engine', 'handlebars');
 
-app.use('/', routes);
+// Body-parser Set Up
+var bodyParser = require("body-parser");
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+    extended: false
+}));
 
-db.sequelize.sync().then(function() {
-    app.listen(PORT, function() {
-        console.log("Listening on port %s", PORT);
-    });
-});
+// Console Logger Set Up
+var logger = require("morgan")
+app.use(logger("dev"));
+
+// Application Routes
+app.use(methodOverride('_method'));
+
+var controller = require("./controllers/burgers_controllers");
+app.use('/', controller);
+
+// // Catch errors and forward them to the below error handlers
+// app.use(function(req, res, next) {
+//     var err = new Error('Not Found');
+//     err.status = 404;
+//     next(err);
+// });
+
+// // Error handler - development error handler will print stacktrace
+// if (app.get('env') === 'development') {
+//     app.use(function(err, req, res, next) {
+//         res.status(err.status || 500);
+//         res.render('error', {
+//             message: err.message,
+//             error: err
+//         });
+//     });
+// }
+
+// // Error handler - production handler not leaking stacktrace to user
+// app.use(function(err, req, res, next) {
+//     res.status(err.status || 500);
+//     res.render('error', {
+//         message: err.message,
+//         error: {}
+//     });
+// });
+
+module.exports = app;
