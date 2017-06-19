@@ -2,6 +2,6 @@
 exports.db = {
     host: 'localhost',
     user: 'root',
-    password: 'freedom22@',
+    password: 'Freedom22@',
     database: 'burgers_db'
 };
