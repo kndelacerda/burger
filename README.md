@@ -6,5 +6,5 @@ This restaurant app allows users to input the names of burgers that they would l
 - Run `npm install` to install the dependencies locally
 - Open the mysql shell files `db/schema.sql` and `db/seeds.sql` files in order to create and load the initial database data.
 - Go to `config/connection.js` and provide the values for your local mysql connection. 
-- Run with `npm start`
+- Run with `npm start` and put http://localhost:3000/ into your browser 
 - Eat da burgers! 

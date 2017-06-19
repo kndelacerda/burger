@@ -7,13 +7,17 @@ var path = require("path");
 // Initialize Express App
 var app = express();
 
-
 // View Engine Set Up
 var exphbs = require("express-handlebars");
 app.engine('handlebars', exphbs({
     defaultLayout: 'main'
 }));
 app.set('view engine', 'handlebars');
+
+// // Favicon & public web server
+// var favicon = require('serve-favicon');
+// app.use(favicon(path.join(__dirname, 'public/assets/img', 'favicon.ico')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Body-parser Set Up
 var bodyParser = require("body-parser");
