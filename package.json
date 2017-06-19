@@ -29,7 +29,6 @@
         "express-handlebars": "^3.0.0",
         "method-override": "^2.3.9",
         "mysql": "^2.13.0",
-        "morgan": "^1.7.0",
-        "mysql": "^2.11.1"
+        "morgan": "^1.7.0"
     }
 }
