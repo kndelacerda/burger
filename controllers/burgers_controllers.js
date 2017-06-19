@@ -24,7 +24,7 @@ router.post('/burgers', function(req, res) {
 });
 
 router.put('/burgers/update/:id', function(req, res) {
-    var condition = 'id = ' + req.params.id;
+    var condition = 'id=' + req.params.id;
     var objColVals = { devoured: req.body.devoured };
 
     burger.devourBurger(objColVals, condition, function() {
@@ -33,7 +33,7 @@ router.put('/burgers/update/:id', function(req, res) {
 });
 
 router.delete('/burgers/update/:id', function(req, res) {
-    var condition = 'id = ' + req.params.id;
+    var condition = 'id=' + req.params.id;
 
     burger.trashBurger(condition, function() {
         res.redirect('/');
