@@ -1,14 +1,8 @@
-// *********************************************************************************
 // CONNECTION.JS - THIS FILE INITIATES THE CONNECTION TO MYSQL
-// *********************************************************************************
 
 // Require mysql
 var mysql = require("mysql");
 
-/**
- * If JAWSDB_URL is available (Heroku), use it.
- * Otherwise use local mysql configuration.
- */
 if (process.env.JAWSDB_URL)
     connection = mysql.createConnection(process.env.JAWSDB_URL);
 else {
