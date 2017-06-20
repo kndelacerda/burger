@@ -14,7 +14,7 @@ else {
         password: keys.db.password,
         database: keys.db.database
     });
-}
+};
 
 // Connects to the DB
 connection.connect(function(err) {
