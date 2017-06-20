@@ -21,8 +21,13 @@
     },
     "devDependencies": {},
     "scripts": {
+        "debug": "DEBUG=hw-eat-da-burger:* npm start",
         "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "node server.js"
+        "start": "node ./bin/www"
+    },
+    "engines": {
+        "node": "6.5.0",
+        "npm": "3.10.3"
     },
     "repository": {
         "type": "git",
